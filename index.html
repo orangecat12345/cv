@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Xuanyu Meng · Resume</title>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --paper:#eef0f4; --card:#ffffff; --ink:#12151c; --ink2:#4a5262; --muted:#98a0ad;
+  --line:#ebedf1; --accent:#ff7a45; --accent2:#ff5a2c; --soft:#fff2ec; --chip:#f2f4f7;
+  --side1:#141a28; --side2:#232d44; --sideink:#e8ebf1; --sidemut:#93a0b8;
+  --shadow:0 24px 70px -24px rgba(18,24,38,.35);
+}
+[data-theme="dark"]{
+  --paper:#080a0e; --card:#11151c; --ink:#e9ecf1; --ink2:#aeb7c4; --muted:#79818e;
+  --line:#222833; --soft:#2a1a12; --chip:#1a2029; --shadow:0 24px 70px -24px rgba(0,0,0,.7);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding:44px 20px 60px;transition:background-color .35s ease;
+}
+.page{
+  max-width:1140px;margin:0 auto;background:var(--card);border-radius:22px;
+  overflow:hidden;box-shadow:var(--shadow);display:flex;align-items:stretch;
+  animation:rise .6s cubic-bezier(.2,.7,.3,1) both;transition:background-color .35s ease;
+}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* Scroll progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:40;background:transparent;pointer-events:none}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 12px rgba(255,90,44,.7);transition:width .1s linear}
+
+/* Reveal */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.2,.7,.3,1),transform .65s cubic-bezier(.2,.7,.3,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ---------- Sidebar ---------- */
+.side{
+  flex:0 0 340px;background:linear-gradient(165deg,var(--side1) 0%,var(--side2) 100%);
+  color:var(--sideink);padding:46px 34px 40px;position:relative;overflow:hidden;
+}
+.side::before{content:"";position:absolute;top:-120px;right:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,69,.30),transparent 70%)}
+.side::after{content:"";position:absolute;bottom:-140px;left:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(90,120,255,.18),transparent 70%)}
+.side > *{position:relative;z-index:1}
+
+.avatar{
+  width:104px;height:104px;border-radius:50%;display:grid;place-items:center;
+  font-size:34px;font-weight:800;letter-spacing:1px;color:#fff;
+  background:linear-gradient(140deg,#ff8a5c,#ff5a2c 55%,#e0401c);
+  box-shadow:0 10px 30px -8px rgba(255,90,44,.7), inset 0 0 0 4px rgba(255,255,255,.14);
+  margin-bottom:22px;transition:transform .4s ease;overflow:hidden;padding:4px;
+}
+.avatar:hover{transform:scale(1.05) rotate(-4deg)}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%;border-radius:50%;display:block}
+.side h1{font-size:27px;font-weight:800;letter-spacing:-.4px;line-height:1.15}
+.side .zh{font-size:14px;color:var(--sidemut);letter-spacing:3px;margin-top:4px}
+.side .role{font-size:12.5px;color:#ffb59a;font-weight:600;margin-top:12px;min-height:38px;line-height:1.5}
+.cursor{display:inline-block;width:6px;height:14px;background:#ffb59a;margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite;border-radius:1px}
+@keyframes blink{50%{opacity:0}}
+.side h4{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sidemut);
+  font-weight:800;margin:30px 0 14px;display:flex;align-items:center;gap:8px;
+}
+.side h4::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+
+.clist{list-style:none;display:grid;gap:12px}
+.clist li{display:flex;gap:11px;align-items:flex-start;font-size:13.2px;color:#cfd6e4;word-break:break-word}
+.clist .ic{flex:0 0 26px;height:26px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:13px}
+.clist a{color:#cfd6e4;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
+.clist a:hover{color:#fff}
+.copy{cursor:pointer;position:relative}
+.copy::after{content:"copy";position:absolute;right:0;top:-1px;font-size:9px;color:var(--sidemut);opacity:0;transition:.2s}
+.copy:hover::after{opacity:1}
+
+.hl{display:grid;gap:10px}
+.hl div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:11px 14px;font-size:13px;color:#cfd6e4}
+.hl b{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+
+.lang{list-style:none;display:grid;gap:12px}
+.lang li{font-size:13px;color:#cfd6e4}
+.lang .lab{display:flex;justify-content:space-between;margin-bottom:6px}
+.lang .bar{height:5px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+.lang .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ff8a5c,#ff5a2c);transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+
+/* ---------- Main ---------- */
+.main{flex:1;padding:50px 52px 54px;min-width:0;transition:background-color .35s ease}
+.block{margin-bottom:38px}
+.block:last-child{margin-bottom:0}
+.sec-title{
+  font-size:13px;letter-spacing:2.2px;text-transform:uppercase;font-weight:800;color:var(--ink2);
+  display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.sec-title::before{content:"";width:22px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.profile{font-size:14.6px;color:var(--ink2);line-height:1.75}
+.profile b{color:var(--ink);font-weight:650}
+
+/* Timeline */
+.tl{list-style:none}
+.tl > li{position:relative;padding:0 0 24px 32px;transition:transform .25s}
+.tl > li:hover{transform:translateX(4px)}
+.tl > li:last-child{padding-bottom:0}
+.tl > li::before{content:"";position:absolute;left:1px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--accent);z-index:1;transition:.25s}
+.tl > li:hover::before{background:var(--accent);box-shadow:0 0 0 5px var(--soft)}
+.tl > li::after{content:"";position:absolute;left:7px;top:20px;bottom:-2px;width:2px;background:var(--line)}
+.tl > li:last-child::after{display:none}
+.tl .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 16px;align-items:baseline}
+.tl h3{font-size:16.5px;font-weight:750;letter-spacing:-.2px}
+.tl .date{font-size:12.5px;font-weight:700;color:var(--accent);white-space:nowrap;background:var(--soft);padding:3px 10px;border-radius:99px}
+.tl .org{font-size:13.6px;color:var(--muted);margin-top:4px;font-weight:500}
+.tl ul{list-style:none;margin-top:11px}
+.tl ul li{font-size:14px;color:var(--ink2);padding:3px 0 3px 20px;position:relative}
+.tl ul li::before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+
+/* Project cards */
+.proj{
+  position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:20px 22px 20px 26px;margin-bottom:14px;overflow:hidden;
+  transition:box-shadow .25s,border-color .25s,transform .12s ease-out;
+  transform-style:preserve-3d;will-change:transform;
+}
+.proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--accent),var(--accent2));transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.proj.in::before{transform:scaleY(1)}
+.proj:hover{box-shadow:0 16px 40px -18px rgba(20,26,40,.45);border-color:transparent}
+.proj .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 16px;align-items:baseline}
+.proj h3{font-size:16.5px;font-weight:750}
+.proj .date{font-size:12.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.proj .org{font-size:13.4px;color:var(--muted);margin-top:3px;font-weight:500}
+.proj ul{list-style:none;margin-top:11px}
+.proj ul li{font-size:14px;color:var(--ink2);padding:3px 0 3px 20px;position:relative}
+.proj ul li::before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.proj ul li.hi{color:var(--ink);font-weight:600}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.8px;font-weight:700;
+  color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:9px 16px;border-radius:10px;transition:.18s;box-shadow:0 8px 20px -10px rgba(255,90,44,.8);
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn svg{width:14px;height:14px;fill:currentColor}
+
+/* Awards */
+.aw{display:grid;gap:11px}
+.aw .item{display:flex;gap:15px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 19px;transition:.2s}
+.aw .item:hover{border-color:var(--accent);transform:translateX(4px)}
+.aw .ico{flex:0 0 40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:18px;background:var(--soft);transition:.3s}
+.aw .item:hover .ico{transform:rotate(-10deg) scale(1.08)}
+.aw b{font-size:14.4px;font-weight:700;display:block}
+.aw small{font-size:12.6px;color:var(--muted)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:12.8px;background:var(--chip);border:1px solid var(--line);color:var(--ink2);padding:6px 14px;border-radius:99px;transition:.16s;cursor:default}
+.chips span:hover{background:var(--soft);border-color:var(--accent);color:var(--accent2);transform:translateY(-2px)}
+
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:46px;padding-top:18px;border-top:1px solid var(--line)}
+
+/* FAB buttons */
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;flex-direction:column;gap:10px}
+.fab button{
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font-size:18px;box-shadow:0 10px 28px -8px rgba(0,0,0,.3);
+  transition:.22s;display:grid;place-items:center;
+}
+.fab button:hover{transform:scale(1.09) translateY(-2px);border-color:var(--accent);color:var(--accent2)}
+.fab #bg{opacity:0;pointer-events:none;transform:scale(.6)}
+.fab #bg.show{opacity:1;pointer-events:auto;transform:none}
+
+/* Toast */
+.toast{
+  position:fixed;left:50%;bottom:30px;transform:translate(-50%,80px);z-index:60;
+  background:var(--ink);color:var(--card);font-size:13px;font-weight:600;padding:11px 20px;border-radius:12px;
+  box-shadow:0 14px 40px -12px rgba(0,0,0,.5);opacity:0;transition:.35s cubic-bezier(.2,.7,.3,1);pointer-events:none;
+}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+@media (max-width:860px){
+  body{padding:0 0 40px}
+  .page{flex-direction:column;border-radius:0}
+  .side{flex:none;width:100%;padding:38px 26px 30px}
+  .main{padding:36px 26px 44px}
+  .avatar{width:88px;height:88px;font-size:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001s!important}
+}
+@media print{
+  .fab,.progress,.toast,.cursor{display:none!important}
+  .js .reveal{opacity:1!important;transform:none!important}
+  body{background:#fff;padding:0;font-size:11px}
+  .page{box-shadow:none;border-radius:0;max-width:none;animation:none}
+  .side{flex:0 0 240px;padding:24px 20px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .side::before,.side::after{display:none}
+  .main{padding:26px 28px}
+  .block{margin-bottom:20px}
+  .proj::before{transform:scaleY(1)}
+  .proj,.aw .item{break-inside:avoid;box-shadow:none}
+  .proj:hover,.aw .item:hover{transform:none}
+  .tl > li{break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="progress"><i id="bar"></i></div>
+
+<div class="page">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="side">
+    <div class="avatar"><img src="assets/avatar.jpg" alt="Xuanyu Meng" onerror="this.style.display='none';this.parentNode.textContent='XM';"></div>
+    <h1>Xuanyu Meng</h1>
+    <div class="zh">孟炫宇</div>
+    <div class="role"><span id="typed"></span><span class="cursor"></span></div>
+
+    <h4>Contact</h4>
+    <ul class="clist">
+      <li><span class="ic">📞</span><a class="copy" href="tel:+44752951556" data-copy="+44 752951556">+44 752951556</a></li>
+      <li><span class="ic">✉️</span><a class="copy" href="mailto:BigorangeMeng@gmail.com" data-copy="BigorangeMeng@gmail.com">BigorangeMeng@gmail.com</a></li>
+      <li><span class="ic">📍</span><span>Jinan, Shandong, China</span></li>
+      <li><span class="ic">💻</span><a href="https://github.com/orangecat12345" target="_blank" rel="noopener">github.com/orangecat12345</a></li>
+    </ul>
+
+    <h4>Highlights</h4>
+    <div class="hl">
+      <div>GPA <b><span class="count" data-count="85.27" data-dec="2">0</span> / 100</b></div>
+      <div><b>National 2nd Prize</b> · College Computer Design Competition</div>
+      <div><b>Solo-built</b> full-stack AI learning platform</div>
+    </div>
+
+    <h4>Languages</h4>
+    <ul class="lang">
+      <li><div class="lab"><span>Chinese</span><span>Native</span></div><div class="bar"><i data-w="100"></i></div></li>
+      <li><div class="lab"><span>English</span><span>CET-6 · IELTS 6.0</span></div><div class="bar"><i data-w="82"></i></div></li>
+    </ul>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <section class="block reveal">
+      <div class="sec-title">Profile</div>
+      <p class="profile">
+        Educational Technology graduate heading to a <b>Computer Science MSc</b>, with hands-on
+        experience turning large language models into real educational products. Independently
+        delivered a full-stack <b>AI-powered learning platform</b>, built educational <b>AI agents</b>
+        for teachers, and taught computer science at the senior high school level. Comfortable across
+        the full lifecycle — from research and design to implementation and delivery.
+      </p>
+    </section>
+
+    <section class="block">
+      <div class="sec-title reveal">Education</div>
+      <ul class="tl">
+        <li class="reveal">
+          <div class="head"><h3>University of Bristol</h3><span class="date">Sep 2026 – Sep 2027</span></div>
+          <div class="org">MSc Computer Science · Bristol, United Kingdom</div>
+        </li>
+        <li class="reveal">
+          <div class="head"><h3>Shandong Normal University</h3><span class="date">Sep 2022 – Jun 2026</span></div>
+          <div class="org">BSc Educational Technology · Jinan, Shandong, China</div>
+          <ul>
+            <li>GPA: <b>85.27 / 100</b> (Undergraduate)</li>
+            <li>English Proficiency: CET-4 &amp; CET-6; IELTS 6.0</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <div class="sec-title reveal">Work Experience</div>
+      <ul class="tl">
+        <li class="reveal">
+          <div class="head"><h3>Computer Teacher</h3><span class="date">Mar 2025 – Jun 2025</span></div>
+          <div class="org">Shandong Experimental High School · Jinan, Shandong, China</div>
+          <ul>
+            <li>Delivered computer science lessons for senior high school students.</li>
+            <li>Leveraged lightweight AI tools to facilitate teaching and improve students' knowledge comprehension and learning efficiency.</li>
+          </ul>
+        </li>
+        <li class="reveal">
+          <div class="head"><h3>AI Agent Developer</h3><span class="date">Jun 2025 – Jul 2025</span></div>
+          <div class="org">Independent Educational Agent Development · Jinan, Shandong, China</div>
+          <ul>
+            <li>Created teaching resources on AI and information technology for school teachers and built AI agents.</li>
+            <li>Led the full project lifecycle independently, from initial planning to final delivery.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <div class="sec-title reveal">Projects &amp; Research</div>
+
+      <div class="proj reveal tilt">
+        <div class="head"><h3>AI Learning Website “StudyCopilot”</h3><span class="date">Jul 2024 – Aug 2024</span></div>
+        <div class="org">Project Lead &amp; Solo Developer</div>
+        <ul>
+          <li>Independently built the full-stack AI-powered online learning website.</li>
+          <li>Implemented core functions including student online learning, learning progress tracking and personalised learning recommendations.</li>
+          <li class="hi">🏆 Won National Second Prize &amp; Shandong Provincial First Prize in the National College Computer Design Competition (software) — the only national second prize awarded to our university that year.</li>
+        </ul>
+      </div>
+
+      <div class="proj reveal tilt">
+        <div class="head"><h3>Provincial Innovation Project on Adversity Quotient Education</h3><span class="date">Nov 2024 – Jun 2025</span></div>
+        <div class="org">Lead Data Analyst</div>
+        <ul>
+          <li>Took charge of all data analysis tasks for this provincial innovation project.</li>
+          <li>Applied statistical tools and methodologies to conduct in-depth analysis of survey datasets.</li>
+          <li>Compiled comprehensive data analysis reports to provide robust data evidence for the whole project.</li>
+        </ul>
+      </div>
+
+      <div class="proj reveal tilt">
+        <div class="head"><h3>Generative AI-assisted Learning Platform</h3><span class="date">Research Paper</span></div>
+        <div class="org">Design and Development of a Generative AI-assisted Learning Platform for University Students Based on Domestic Large Language Models</div>
+        <ul>
+          <li>Constructed educational AI agents tailored to student learning scenarios.</li>
+          <li>Proposed the design framework and methodology for agent development.</li>
+          <li>Implemented and demonstrated working prototype outputs.</li>
+        </ul>
+        <a class="btn" href="https://github.com/orangecat12345/StudioCopilot" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          Project Repository — StudioCopilot
+        </a>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="sec-title reveal">Honours &amp; Certificates</div>
+      <div class="aw">
+        <div class="item reveal">
+          <div class="ico">🏆</div>
+          <div><b>National Second Prize &amp; Shandong Provincial First Prize</b>
+          <small>National College Computer Design Competition (Software) · Aug 2024</small></div>
+        </div>
+        <div class="item reveal">
+          <div class="ico">📜</div>
+          <div><b>Completion Certificate — Provincial College Innovation Training Program</b>
+          <small>Jun 2025</small></div>
+        </div>
+        <div class="item reveal">
+          <div class="ico">🎓</div>
+          <div><b>Qualification Certificate for Senior High School Information Technology Teacher</b>
+          <small>Teacher Qualification</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="sec-title reveal">Skills &amp; Core Courses</div>
+      <div class="chips reveal">
+        <span>Large Language Models</span><span>AI Agent Development</span><span>Prompt Engineering</span>
+        <span>Python</span><span>Java</span><span>C</span><span>Full-stack Web</span>
+        <span>Data Analysis</span><span>Generative AI</span><span>Educational Technology</span>
+        <span>Software Development</span><span>Prototyping</span><span>Research &amp; Writing</span>
+        <span>3D Design &amp; Modelling</span><span>Computer Networks</span>
+      </div>
+      <footer>© <span id="yr"></span> Xuanyu Meng · Built for sharing</footer>
+    </section>
+
+  </main>
+</div>
+
+<div class="fab">
+  <button id="tp" title="Download as PDF" aria-label="Download as PDF">⤓</button>
+  <button id="bg" title="Back to top" aria-label="Back to top">↑</button>
+  <button id="tg" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- theme (persisted) ---- */
+  var tg=document.getElementById('tg');
+  var saved=null; try{saved=localStorage.getItem('resume-theme');}catch(e){}
+  if(saved==='dark'){root.setAttribute('data-theme','dark');tg.textContent='☀️';}
+  tg.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme',dark?'light':'dark');
+    tg.textContent=dark?'🌙':'☀️';
+    try{localStorage.setItem('resume-theme',dark?'light':'dark');}catch(e){}
+  });
+
+  /* ---- scroll progress + back-to-top ---- */
+  var bar=document.getElementById('bar'), bg=document.getElementById('bg');
+  function onScroll(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+    bg.classList.toggle('show',h.scrollTop>420);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  bg.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* ---- print / download PDF ---- */
+  document.getElementById('tp').addEventListener('click',function(){window.print();});
+
+  /* ---- toast ---- */
+  var toastEl=document.getElementById('toast'),toastTimer=null;
+  function toast(msg){
+    toastEl.textContent=msg; toastEl.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){toastEl.classList.remove('show');},1800);
+  }
+
+  /* ---- click to copy ---- */
+  document.querySelectorAll('[data-copy]').forEach(function(el){
+    el.addEventListener('click',function(ev){
+      ev.preventDefault();
+      var txt=el.getAttribute('data-copy');
+      function done(){toast('Copied: '+txt);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done).catch(function(){fallback(txt);done();});
+      }else{fallback(txt);done();}
+    });
+  });
+  function fallback(txt){
+    var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);
+  }
+
+  /* ---- reveal on scroll ---- */
+  var revs=document.querySelectorAll('.reveal');
+  if(reduce||!('IntersectionObserver' in window)){
+    revs.forEach(function(e){e.classList.add('in');});
+    document.querySelectorAll('.count').forEach(function(e){e.textContent=fmt(e);});
+    document.querySelectorAll('.bar i').forEach(function(e){e.style.width=e.getAttribute('data-w')+'%';});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var sibs=Array.prototype.slice.call(e.target.parentNode.children).filter(function(n){return n.classList&&n.classList.contains('reveal');});
+          var i=sibs.indexOf(e.target); if(i>0) e.target.style.transitionDelay=Math.min(i,5)*70+'ms';
+          e.target.classList.add('in');
+          if(e.target.querySelector('.bar i')) e.target.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.getAttribute('data-w')+'%';});
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+    revs.forEach(function(e){io.observe(e);});
+
+    /* counters */
+    var cio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){runCount(e.target);cio.unobserve(e.target);}
+      });
+    },{threshold:.5});
+    document.querySelectorAll('.count').forEach(function(e){cio.observe(e);});
+  }
+  function fmt(el){var d=parseInt(el.getAttribute('data-dec')||'0',10);return parseFloat(el.getAttribute('data-count')).toFixed(d);}
+  function runCount(el){
+    var target=parseFloat(el.getAttribute('data-count')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    var dur=1150, t0=performance.now();
+    (function tick(t){
+      var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=(target*e).toFixed(dec);
+      if(p<1) requestAnimationFrame(tick); else el.textContent=target.toFixed(dec);
+    })(t0);
+  }
+
+  /* ---- typewriter role ---- */
+  var roles=["MSc Computer Science @ University of Bristol","AI × Education","LLM Agent Developer","Full-stack Builder"];
+  var typed=document.getElementById('typed');
+  if(reduce){typed.textContent=roles[0];}
+  else{
+    var ri=0,ci=0,del=false;
+    (function loop(){
+      var word=roles[ri];
+      typed.textContent=word.slice(0,ci);
+      if(!del&&ci<word.length){ci++;setTimeout(loop,55);}
+      else if(!del&&ci===word.length){del=true;setTimeout(loop,1500);}
+      else if(del&&ci>0){ci--;setTimeout(loop,28);}
+      else{del=false;ri=(ri+1)%roles.length;setTimeout(loop,320);}
+    })();
+  }
+
+  /* ---- 3D tilt on project cards ---- */
+  if(!reduce && window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.tilt').forEach(function(card){
+      card.addEventListener('mousemove',function(ev){
+        var r=card.getBoundingClientRect();
+        var x=(ev.clientX-r.left)/r.width-.5, y=(ev.clientY-r.top)/r.height-.5;
+        card.style.transform='perspective(900px) rotateY('+(x*5).toFixed(2)+'deg) rotateX('+(-y*5).toFixed(2)+'deg) translateY(-3px)';
+      });
+      card.addEventListener('mouseleave',function(){card.style.transform='';});
+    });
+  }
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
